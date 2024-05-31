@@ -1,0 +1,61 @@
+<mvc:View xmlns:table="sap.ui.table" controllerName="testing.test.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" 
+    xmlns:f="sap.ui.layout.form"
+    xmlns:c="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+    <Shell id="shell">
+    <App id="app">
+    <pages>
+    <Page id="page" title="{i18n>title}" titleAlignment="Center">
+        <content>
+            <f:SimpleForm >
+                <c:Title text="Simple Form" icon="sap-icon://employee-lookup" emphasized="true"></c:Title>
+                <f:content>
+                    <Label text="TR Number"/>
+                    <Input id="TRNumberID" placeholder="Enter TR number"/>
+                    <Label text="Name"/>
+                    <Input id="nameID" placeholder="Enter Name"/>
+                    <Label text="Last Name"/>
+                    <Input id="lastnameID" placeholder="Enter Last Name"/>
+                </f:content>
+            </f:SimpleForm>
+            <Table id="tableID" headerText="Test" items="{HitModel>/items}" mode="Delete" delete="onDeleteTable">
+                <columns>
+                    <Column>
+                        <header>
+                            <Label text="TR Number" wrapping="true"></Label>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Name" wrapping="true"></Label>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Last Name" wrapping="true"></Label>
+                        </header>
+                    </Column>
+                </columns>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{HitModel>TRNO}"/>
+                        <Text text="{HitModel>FIRST_NAME}"/>
+                        <Text text="{HitModel>LAST_NAME}"/>
+                    </cells>
+                </ColumnListItem>
+            </Table>
+        </content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button id="btn_Approve" text="Approve" type="Accept" press="btnApprove"/>
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+    </pages>
+    </App>
+    </Shell>
+</mvc:View>
